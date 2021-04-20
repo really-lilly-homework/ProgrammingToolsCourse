@@ -1,0 +1,7 @@
+#Lillian Tatka
+#HW2 Q2
+# 4/20/21 (1 day late)
+
+#!/bin/bash
+
+alias private='chmod -R g=u'

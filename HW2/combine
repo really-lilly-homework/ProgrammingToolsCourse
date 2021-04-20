@@ -1,0 +1,26 @@
+#Lillian Tatka
+#HW2 Q 3
+#4/20/21 (1 day late)
+
+#!/bin/bash
+
+# Check for minimum number of args
+if [ $# -lt 2 ]; then
+  echo "Error: too few args" 1>&2; exit 1
+fi
+
+# Check if file exists
+if [ -e "$1" ]; then
+  echo "Error: first file exists" 1>&2; exit 1
+fi
+
+FILE_OUT="$1"
+
+# Adjust indices 
+shift
+
+cat "$@" > "$FILE_OUT" 2>&1
+
+exit 0
+
+ 

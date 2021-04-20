@@ -1,0 +1,132 @@
+Script started on 2021-04-12 14:18:08-07:00
+]777;notify;Command completed;exit 0]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ # GETTING STARTED
+]777;notify;Command completed;# GETTING STARTED]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ passwd
+Changing password for user highway2he11.
+Current password: 
+New password: 
+BAD PASSWORD: The password is shorter than 8 characters
+New password: 
+Retype new password: 
+Sorry, passwords do not match.
+New password: 
+Retype new password: 
+passwd: all authentication tokens updated successfully.
+]777;notify;Command completed;passwd]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ passwd
+Changing password for user highway2he11.
+Current password: 
+New password: 
+Retype new password: 
+passwd: all authentication tokens updated successfully.
+]777;notify;Command completed;passwd]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ date
+Mon Apr 12 14:19:19 PDT 2021
+]777;notify;Command completed;date]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ echo "Go DAWS[KGS[KZ!"
+Go DAWGZ!
+]777;notify;Command completed;echo "Go DAWGZ!"]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ # FILE PATH & DIRECTORY NAV
+]777;notify;Command completed;# FILE PATH & DIRECTORY NAV]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ echo $HOME
+/home/highway2he11
+]777;notify;Command completed;echo $HOME]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ cd
+]777;notify;Command completed;cd]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ ls
+allusers  [0m[38;5;33mDocuments[0m  hw1.part1  myscript.sh  [38;5;33mPublic[0m      [38;5;33mTemplates[0m  [38;5;33mVideos[0m
+[38;5;33mDesktop[0m   [38;5;33mDownloads[0m  [38;5;33mMusic[0m      [38;5;33mPictures[0m     secretfile  text
+]777;notify;Command completed;ls]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ mkdire [K[K[K [Kr temp
+]777;notify;Command completed;mkdir temp]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ mv temp HWOne
+]777;notify;Command completed;mv temp HWOne]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ cd HWOne
+]777;notify;Command completed;cd HWOne]0;highway2he11@localhost:~/HWOne]7;file://localhost.localdomain/home/highway2he11/HWOne[highway2he11@localhost HWOne]$ date > now
+]777;notify;Command completed;date > now]0;highway2he11@localhost:~/HWOne]7;file://localhost.localdomain/home/highway2he11/HWOne[highway2he11@localhost HWOne]$ cp now before
+]777;notify;Command completed;cp now before]0;highway2he11@localhost:~/HWOne]7;file://localhost.localdomain/home/highway2he11/HWOne[highway2he11@localhost HWOne]$ ls l[K-l
+total 8
+-rw-rw-r-- 1 highway2he11 highway2he11 29 Apr 12 14:21 before
+-rw-rw-r-- 1 highway2he11 highway2he11 29 Apr 12 14:21 now
+]777;notify;Command completed;ls -l]0;highway2he11@localhost:~/HWOne]7;file://localhost.localdomain/home/highway2he11/HWOne[highway2he11@localhost HWOne]$ touch temporary
+]777;notify;Command completed;touch temporary]0;highway2he11@localhost:~/HWOne]7;file://localhost.localdomain/home/highway2he11/HWOne[highway2he11@localhost HWOne]$ mv temporary test
+]777;notify;Command completed;mv temporary test]0;highway2he11@localhost:~/HWOne]7;file://localhost.localdomain/home/highway2he11/HWOne[highway2he11@localhost HWOne]$ cd ..
+]777;notify;Command completed;cd ..]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ rm 0[K-r HWOne
+]777;notify;Command completed;rm -r HWOne]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ # PERMISSIONS
+]777;notify;Command completed;# PERMISSIONS]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ echo "EYes[K[K[Kyes Only" > secretfile[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K# remove old secret [Kfile from practicing
+]777;notify;Command completed;# remove old secretfile from practicing]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ rm secretfile
+]777;notify;Command completed;rm secretfile]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ echo "Eyes Only" sec[K[K[K> secretfile
+]777;notify;Command completed;echo "Eyes Only" > secretfile]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ chmod 644 secretfile
+]777;notify;Command completed;chmod 644 secretfile]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ ls -l secretfile
+-rw-r--r-- 1 highway2he11 highway2he11 10 Apr 12 14:23 secretfile
+]777;notify;Command completed;ls -l secretfile]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ cat >> secretfile
+Adding more text to secretfile
+]777;notify;Command completed;cat >> secretfile]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ chmode[K 600 secretfiloe[K[Ke
+]777;notify;Command completed;chmod 600 secretfile]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ ls -l secretfile
+-rw------- 1 highway2he11 highway2he11 41 Apr 12 14:24 secretfile
+]777;notify;Command completed;ls -l secretfile]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ u[Kcat
+]777;notify;Command completed;cat]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ cat secretfile
+Eyes Only
+Adding more text to secretfile
+]777;notify;Command completed;cat secretfile]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ # PROCESS INFORMATION
+]777;notify;Command completed;# PROCESS INFORMATION]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ uname -r
+4.18.0-240.1.1.el8_3.x86_64
+]777;notify;Command completed;uname -r]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ ps -u highway2he11
+    PID TTY          TIME CMD
+   1483 ?        00:00:00 systemd
+   1485 ?        00:00:00 (sd-pam)
+   1498 ?        00:00:00 pulseaudio
+   1503 ?        00:00:00 gnome-keyring-d
+   1515 ?        00:00:00 dbus-daemon
+   1521 tty2     00:00:00 gdm-x-session
+   1542 tty2     00:00:00 gnome-session-b
+   1597 ?        00:00:00 at-spi-bus-laun
+   1602 ?        00:00:00 dbus-daemon
+   1605 ?        00:00:00 at-spi2-registr
+   1622 tty2     00:00:31 gnome-shell
+   1632 ?        00:00:00 gvfsd
+   1637 ?        00:00:00 gvfsd-fuse
+   1647 tty2     00:00:00 ibus-daemon
+   1651 tty2     00:00:00 ibus-dconf
+   1652 tty2     00:00:00 ibus-extension-
+   1654 tty2     00:00:00 ibus-x11
+   1656 ?        00:00:00 ibus-portal
+   1659 ?        00:00:00 xdg-permission-
+   1674 ?        00:00:00 gnome-shell-cal
+   1679 ?        00:00:00 evolution-sourc
+   1687 ?        00:00:00 goa-daemon
+   1697 ?        00:00:00 gvfs-udisks2-vo
+   1703 ?        00:00:00 gvfs-afc-volume
+   1708 ?        00:00:00 gvfs-gphoto2-vo
+   1718 ?        00:00:00 goa-identity-se
+   1719 tty2     00:00:00 gsd-power
+   1720 tty2     00:00:00 gsd-print-notif
+   1722 tty2     00:00:00 gsd-rfkill
+   1723 tty2     00:00:00 gsd-screensaver
+   1724 tty2     00:00:00 gsd-sharing
+   1725 tty2     00:00:00 gsd-smartcard
+   1726 tty2     00:00:00 gsd-sound
+   1727 tty2     00:00:00 gsd-wacom
+   1728 tty2     00:00:00 gsd-xsettings
+   1729 tty2     00:00:00 gsd-account
+   1744 tty2     00:00:00 gsd-a11y-settin
+   1749 tty2     00:00:00 gsd-clipboard
+   1750 tty2     00:00:00 gsd-color
+   1752 tty2     00:00:00 gsd-datetime
+   1753 tty2     00:00:00 gsd-housekeepin
+   1760 tty2     00:00:00 gsd-keyboard
+   1761 tty2     00:00:00 gsd-media-keys
+   1763 tty2     00:00:00 gsd-mouse
+   1794 tty2     00:00:00 gsd-printer
+   1819 ?        00:00:00 evolution-calen
+   1834 tty2     00:00:00 tracker-miner-f
+   1835 tty2     00:00:09 vmtoolsd
+   1838 tty2     00:00:00 tracker-miner-a
+   1843 ?        00:00:00 tracker-store
+   1869 ?        00:00:00 evolution-calen
+   1891 ?        00:00:00 dconf-service
+   1894 ?        00:00:00 evolution-addre
+   1902 tty2     00:00:00 ibus-engine-sim
+   1923 ?        00:00:00 evolution-addre
+   2130 ?        00:00:00 gvfsd-metadata
+   2937 ?        00:00:01 gnome-terminal-
+   2945 pts/0    00:00:00 bash
+   3003 pts/0    00:00:00 script
+   3005 pts/1    00:00:00 bash
+   3376 pts/1    00:00:00 ps
+]777;notify;Command completed;ps -u highway2he11]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ # Sear[K[K[Ke[KEARCHING
+]777;notify;Command completed;# SEARCHING]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ grp [K[Kep -w "[K'highway2he11' /etc/passwd
+[01;31m[Khighway2he11[m[K:x:1500:1500:[01;31m[Khighway2he11[m[K:/home/[01;31m[Khighway2he11[m[K:/bin/bash
+]777;notify;Command completed;grep -w 'highway2he11' /etc/passwd]0;highway2he11@localhost:~]7;file://localhost.localdomain/home/highway2he11[highway2he11@localhost ~]$ exit 
+exit
+
+Script done on 2021-04-12 14:26:29-07:00

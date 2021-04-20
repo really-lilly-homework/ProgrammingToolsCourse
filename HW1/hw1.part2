@@ -1,0 +1,24 @@
+Lillian Tatka
+2. (using Emacs)
+3. To open: ctrl+x, ctrl+f
+4. wc prints the number of newlines, words, and bytes for the given file. The option -w prints only the word count.
+5.  38   90 2064 /etc/passwd
+6. To terminate a process in the foreground: ^C
+   To bring a background process to foreground and terminate: fs | ^C
+   To simply terminte a process regardless: kill <process ID>
+   To terminate all processes associated with a program: killall <program_name>
+7. $HOSTNAME contains the local host name and local domain
+8. $PATH - stores locations where executables are found. When a command is run, the shell looks through the PATH directories to find the target executable and runs it. If a command or program is not in the PATH, the computer will be unable to find and run it.
+   $HOME - the path to the current home directory. This is the root directory of the system, all other directories live in home. Important to know because it is where cd will take us and gives a starting point for accessing all files.
+   $SHELL - the path to the shell, where the human readable commands are converted and passed to the computer.
+9. find . -type f -name donotloseme -print
+   Where . refers to the current directory, where the search will begin
+   -type f ---> means we are looking only for plain files
+   -name dontloseme ---> searching for files with this name
+   -print ---> the location relative to the current directory will be printed when found
+10. I used the Linux Pocket Guide to get this information
+11. The 'which' command locates executable files in the PATH. This is different from 'find' as it only searches for executables (as opposed to any file type) and it only searches the shell search path, as opposed to recursively beginning with the current working directory as with 'find.'
+12.echo Hello World ---> prints "Hello World" to the terminal
+   echo Hello World > hello ---> creates a file named 'hello' containing the text 'Hello World'
+13.echo deep breaths > hello ---> replaces the contents of the file 'hello' with the text 'deep breaths'
+14.echo relax >> hello  ---> appends the text 'relax' to the contents of the file 'hello'

@@ -1,0 +1,28 @@
+#Lillian Tatka
+#HW2 problem1
+#2021-04-19
+
+1. echo LuxSit
+No preceeding commands for this command. Echo simply prints the text.
+
+2. touch LuxSit
+   nano LuxSit
+   <write the text 'LuxSit' in the file, save, exit>
+   cat LuxSit
+First I create a file named LuxSit (could be named anything though) and edit it to include only the text 'LuxSit'. Back in the terminal, I print out the first few lines of the file LuxSit with the cat command and since the only contents are the text 'LuxSit', that prints to the terminal.
+
+3. mkdir temp
+   cd temp
+   touch LuxSit
+   ls
+This creates a new directory and moves to the new directory where a new file named 'LuxSit' is created. When ls is called, the contents of this directory, only the file named 'LuxSit' are printed to the terminal.
+
+4. cd <directory where the LuxSit file from #2 is located>
+   grep LuxSit LuxSit
+Navigate to the directory where the file LuxSit was created in #2. This file contains the text 'LuxSit'. This command looks through the file LuxSit for the string LuxSit and prints out lines that match, in this case a line containing only the desired text.
+
+5. alias LuxSit='touch temp'
+   LuxSit
+   !!
+This aliases the word 'LuxSit' to creat a file name temp (it could be any command that does not print an output to the terminal). This command is called and then !! prints the previously issued command and it's output, in this case, simply the word 'LuxSit' since no output was produced.
+
