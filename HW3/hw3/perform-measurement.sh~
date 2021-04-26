@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Check for args:
+if [ $# -ne 1 ]; then
+    echo "Error: perform-measurement requires exactly 1 arg"  1>&2
+    exit 1
+fi
+
+# Make temp file for errors
+temp=$(mktemp /tmp/errors.XXXXXXX)
+
+# Try to download file
+wget -o "$temp" "$0"
+
+# Check for errors 
+nErrors=$(wc -l < "$temp")
+if [ $nErrors -gt 0 ] then;
+   echo "Could not download the requested file" 1>&2; exit 1
+fi
+
+
+rm "$temp"
+echo 0
+   
+exit 0
