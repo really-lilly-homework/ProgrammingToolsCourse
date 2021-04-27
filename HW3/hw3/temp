@@ -1,4 +1,10 @@
-wget: missing URL
-Usage: wget [OPTION]... [URL]...
+--2021-04-26 17:39:13--  http://courses.cs.washington.edu/courses/cse374/21sp/assig
+Resolving courses.cs.washington.edu (courses.cs.washington.edu)... 128.208.1.193, 2607:4000:200:10::c1
+Connecting to courses.cs.washington.edu (courses.cs.washington.edu)|128.208.1.193|:80... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://courses.cs.washington.edu/courses/cse374/21sp/assig [following]
+--2021-04-26 17:39:13--  https://courses.cs.washington.edu/courses/cse374/21sp/assig
+Connecting to courses.cs.washington.edu (courses.cs.washington.edu)|128.208.1.193|:443... connected.
+HTTP request sent, awaiting response... 404 Not Found
+2021-04-26 17:39:13 ERROR 404: Not Found.
 
-Try `wget --help' for more options.
