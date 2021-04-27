@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# arg1: output filename
+# arg2: input filename
+
 # Check for correct number of args:
 if [ $# -ne 2 ]; then
   echo Error: incorrect number of arguments - 2 required.; exit 1
@@ -18,10 +21,8 @@ fi
 
 touch "$1"
 
-# Find URLs and remove text before
-grep http://courses.cs courses-index.html | sed 's/^.*http/http/g'| sed 's/\(http:\/\/[a-zA-Z0-9./?=_%:-]*\/[a-zA-Z0-9./?=_%:-]*\/[a-zA-Z0-9./?=_%:-]*\).*/\1/' | uniq | sort  >> "$1"
-
-echo Finished getting courses.
+# Find URLs and remove surrounding text
+grep http://courses.cs courses-index.html | sed 's/^.*http/http/g'| grep -o 'http:\/\/courses.cs.washington.edu\/courses\/cse[a-zA-Z0-9]*'| uniq | sort  >> "$1"
 
 exit 0
 

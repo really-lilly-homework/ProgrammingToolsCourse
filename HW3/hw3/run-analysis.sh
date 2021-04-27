@@ -25,8 +25,6 @@ do
 	echo ...failure
     else
 	course=$(sed 's/.*\(cse[0-9]*\).*/\1/' <<< "$line"| grep -o '[0-9]*')
-	#coursenum=$(sed 's/.*\([0-9]*\)/\1/p' <<< "$course") 
-	echo "$course"
 	echo "$course"  "$bytecount" >> "$1"
 	echo ...success
     fi
