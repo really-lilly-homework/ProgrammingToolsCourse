@@ -15,13 +15,12 @@ wget -o "$output" "$1" -O "$download" >/dev/null
 
 # Check for errors 
 if (grep -i 'error' "$output"); then
-   echo "Could not download the requested file" 1>&2; exit 1
+   echo 0; exit 1
 fi
 
 bytes=$(wc -c < "$download")
 echo "$bytes"
 
 rm "$output" "$download"
-echo 0
    
 exit 0
