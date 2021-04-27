@@ -2,16 +2,17 @@
 
 # Check for correct number of args:
 if [ $# -ne 2 ]; then
-  echo "Error: exactly 2 args required." 1>&2; exit 1
+    echo "Error: exactly 2 args required." 1>&2; exit 1
 fi
 
 if [ -e "$1" ]; then
-  echo Overwriting file "$1"
+    echo Overwriting file "$1"
+    rm "$1"
 fi
 
 # Check for file validity:
 if [ ! -f $2 ]; then
-  echo "Error: invalid file." 1>&2; exit 1
+    echo "Error: invalid file." 1>&2; exit 1
 fi
 
 touch "$1"
@@ -23,10 +24,15 @@ do
     if [ $? -eq 1 ]; then
 	echo ...failure
     else
-	echo "$bytecount" >> "$1"
+	course=$(sed 's/.*\(cse[0-9]*\).*/\1/' <<< "$line"| grep -o '[0-9]*')
+	#coursenum=$(sed 's/.*\([0-9]*\)/\1/p' <<< "$course") 
+	echo "$course"
+	echo "$course"  "$bytecount" >> "$1"
 	echo ...success
     fi
     
 done < "$2"
 
 exit 0
+
+ 
