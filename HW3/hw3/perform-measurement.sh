@@ -7,24 +7,21 @@ if [ $# -ne 1 ]; then
 fi
 
 # Make temp file for errors
-#temp=$(mktemp /tmp/errors.XXXXXXX)
-
-touch temp
-touch file
-
-echo trying to find "$1"
+output=$(mktemp /tmp/errors.XXXXXXX)
+download=$(mktemp /tmp/download.XXXXXXX)
 
 # Try to download file
-wget -O file "$1" 2>temp
+wget -o "$output" "$1" -O "$download" >/dev/null
 
 # Check for errors 
-nErrors=$(wc -l < temp)
-if grep -i 'error' temp; then
+if (grep -i 'error' "$output"); then
    echo "Could not download the requested file" 1>&2; exit 1
 fi
 
+bytes=$(wc -c < "$download")
+echo "$bytes"
 
-#rm "$temp"
+rm "$output" "$download"
 echo 0
    
 exit 0
