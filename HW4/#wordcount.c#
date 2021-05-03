@@ -5,38 +5,24 @@
 #include <string.h>
 #include <unistd.h>
 
-#define MAX_SIZE 255 //Maximum string size
+#define MAX_SIZE 500 //Maximum string size
 
-/*
- * Check if a file exists by trying to open it.
- * return 1 if it exists.
- * return 0 if it does not exist.
-*/
-int checkFileExists(const char * filename) {
-  if(access(filename, F_OK) == 0) {
-    return 1;
-  }
-  else {
+void checkFileExists(const char * filename) {
+  if(!access(filename, F_OK) == 0) {
     fprintf(stderr, "File %s does not exist.\n", filename);
-    return 0;
+     EXIT_FAILURE;
   }
 }
 
-/*
- * Check if the correct number of arguments is supplied
- * Returns 0 if true.
- * Returns 1 if the number of arguments is incorrect.
-*/
-int checkArguments(int argc) {
+void checkArguments(int argc) {
   if( argc < 2 ) {
     fprintf(stderr, "Too few arguments.\n");
-    return 1;
+    exit(EXIT_FAILURE);
   }
   else if( argc > 2 ) {
     fprintf(stderr, "Too many arguments.\n");
-    return 1;
-  }
-    return 0;    
+    exit(EXIT_FAILURE);
+  }    
 }
 
 
@@ -44,31 +30,21 @@ int checkArguments(int argc) {
 
 int main( int argc, char *argv[] ) {
 
-  //Check that arguments are correct:
-  int correctArgs = checkArguments(argc);
-  if(correctArgs != 0) {
-    return 1;
-  }
-
-  //Check that the file to count exists:
+  checkArguments(argc);
+ 
   char* filename = argv[1];
-  int exists = checkFileExists(filename);
-  if(!exists) {
-    return 1;
-  }
+  checkFileExists(filename);
 
   FILE *fp = fopen(filename, "r");
   if(fp == NULL) {
     fprintf(stderr, "Error opening the file.\n");
-    return 1;
+    exit(EXIT_FAILURE);
   }
-
 
   int wordcount = 0;
   int linecount = 0;
   int charcount = 0;
   char ch = getc(fp);
-  
 
   while(ch != EOF) {
     charcount++;
