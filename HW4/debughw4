@@ -1,0 +1,258 @@
+Script started on 2021-05-03 19:48:22-07:00
+]777;notify;Command completed;emacs]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ emacsmore popular-small.txtout[Kls[K./run-analysis.sh out popular-small.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[19Pmore run-analysis.shls[K./run-analysis.sh out popular-small.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kmore run-analysis.sh./run-analysis.sh out popular-small.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kmore outpopular-small.txtemacs[K[Kgcc -g -Wal [K [Kl -std=c11 -o makeleet makeleet.c
+]777;notify;Command completed;gcc -g -Wall -std=c11 -o makeleet makeleet.c]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ valgrind -leak0[K-check-[K=full ./makeleet testfile
+valgrind: Unknown option: -leak-check=full
+valgrind: Use --help for more information or consult the user manual.
+]777;notify;Command completed;valgrind -leak-check=full ./makeleet testfile]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ valgrind -leak-check=full ./makeleet testfile[1@-[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+==32681== Memcheck, a memory error detector
+==32681== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==32681== Using Valgrind-3.16.0 and LibVEX; rerun with -h for copyright info
+==32681== Command: ./makeleet testfile
+==32681== 
+==32681== Invalid read of size 1
+==32681==    at 0x4C34334: strlen (vg_replace_strmem.c:459)
+==32681==    by 0x4EB0D75: puts (in /usr/lib64/libc-2.28.so)
+==32681==    by 0x400B3D: replaceChars (makeleet.c:101)
+==32681==    by 0x400BA0: main (makeleet.c:115)
+==32681==  Address 0x5202570 is 0 bytes after a block of size 64 alloc'd
+==32681==    at 0x4C30F0B: malloc (vg_replace_malloc.c:307)
+==32681==    by 0x400A5E: replaceChars (makeleet.c:72)
+==32681==    by 0x400BA0: main (makeleet.c:115)
+==32681== 
+THi$ i$ A 73$7 fil3 
+7* $33 if w3 
+cAn c*rr3c7ly l*Ad And r3Ad.
+
+==32681== 
+==32681== HEAP SUMMARY:
+==32681==     in use at exit: 500 bytes in 2 blocks
+==32681==   total heap usage: 7 allocs, 5 frees, 10,268 bytes allocated
+==32681== 
+==32681== 12 bytes in 1 blocks are definitely lost in loss record 1 of 2
+==32681==    at 0x4C30F0B: malloc (vg_replace_malloc.c:307)
+==32681==    by 0x4009BD: wordCount (makeleet.c:57)
+==32681==    by 0x400B89: main (makeleet.c:114)
+==32681== 
+==32681== LEAK SUMMARY:
+==32681==    definitely lost: 12 bytes in 1 blocks
+==32681==    indirectly lost: 0 bytes in 0 blocks
+==32681==      possibly lost: 0 bytes in 0 blocks
+==32681==    still reachable: 488 bytes in 1 blocks
+==32681==         suppressed: 0 bytes in 0 blocks
+==32681== Reachable blocks (those to which a pointer was found) are not shown.
+==32681== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==32681== 
+==32681== For lists of detected and suppressed errors, rerun with: -s
+==32681== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+]777;notify;Command completed;valgrind --leak-check=full ./makeleet testfile]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ [K[highway2he11@localhost HW4]$ valgrind --leak-check=full ./makeleet testfile
+==32701== Memcheck, a memory error detector
+==32701== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==32701== Using Valgrind-3.16.0 and LibVEX; rerun with -h for copyright info
+==32701== Command: ./makeleet testfile
+==32701== 
+==32701== Invalid read of size 1
+==32701==    at 0x4C34334: strlen (vg_replace_strmem.c:459)
+==32701==    by 0x4EB0D75: puts (in /usr/lib64/libc-2.28.so)
+==32701==    by 0x400B3D: replaceChars (makeleet.c:101)
+==32701==    by 0x400BA0: main (makeleet.c:115)
+==32701==  Address 0x5202570 is 0 bytes after a block of size 64 alloc'd
+==32701==    at 0x4C30F0B: malloc (vg_replace_malloc.c:307)
+==32701==    by 0x400A5E: replaceChars (makeleet.c:72)
+==32701==    by 0x400BA0: main (makeleet.c:115)
+==32701== 
+THi$ i$ A 73$7 fil3 
+7* $33 if w3 
+cAn c*rr3c7ly l*Ad And r3Ad.
+
+==32701== 
+==32701== HEAP SUMMARY:
+==32701==     in use at exit: 500 bytes in 2 blocks
+==32701==   total heap usage: 7 allocs, 5 frees, 10,268 bytes allocated
+==32701== 
+==32701== 12 bytes in 1 blocks are definitely lost in loss record 1 of 2
+==32701==    at 0x4C30F0B: malloc (vg_replace_malloc.c:307)
+==32701==    by 0x4009BD: wordCount (makeleet.c:57)
+==32701==    by 0x400B89: main (makeleet.c:114)
+==32701== 
+==32701== LEAK SUMMARY:
+==32701==    definitely lost: 12 bytes in 1 blocks
+==32701==    indirectly lost: 0 bytes in 0 blocks
+==32701==      possibly lost: 0 bytes in 0 blocks
+==32701==    still reachable: 488 bytes in 1 blocks
+==32701==         suppressed: 0 bytes in 0 blocks
+==32701== Reachable blocks (those to which a pointer was found) are not shown.
+==32701== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==32701== 
+==32701== For lists of detected and suppressed errors, rerun with: -s
+==32701== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+]777;notify;Command completed;valgrind --leak-check=full ./makeleet testfile]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ valgrind --leak-check=full ./makeleet testfile[1P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1Pgcc -g -Wall -std=c11 -o makeleet makeleet.c
+[01m[Kmakeleet.c:[m[K In function ‘[01m[KreplaceChars[m[K’:
+[01m[Kmakeleet.c:103:8:[m[K [01;35m[Kwarning: [m[Kpassing argument 1 of ‘[01m[Kfree[m[K’ makes pointer from integer without a cast [[01;35m[K-Wint-conversion[m[K]
+   free([01;35m[K*newString[m[K);
+        [01;35m[K^~~~~~~~~~[m[K
+In file included from [01m[Kmakeleet.c:5[m[K:
+[01m[K/usr/include/stdlib.h:563:25:[m[K [01;36m[Knote: [m[Kexpected ‘[01m[Kvoid *[m[K’ but argument is of type ‘[01m[Kchar[m[K’
+ extern void free ([01;36m[Kvoid *__ptr[m[K) __THROW;
+                   [01;36m[K~~~~~~^~~~~[m[K
+]777;notify;Command completed;gcc -g -Wall -std=c11 -o makeleet makeleet.c]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ gcc -g -Wall -std=c11 -o makeleet makeleet.c
+[01m[Kmakeleet.c:[m[K In function ‘[01m[KwordCount[m[K’:
+[01m[Kmakeleet.c:62:8:[m[K [01;31m[Kerror: [m[Kincompatible type for argument 1 of ‘[01m[Kfree[m[K’
+   free([01;31m[K*fp[m[K);
+        [01;31m[K^~~[m[K
+In file included from [01m[Kmakeleet.c:5[m[K:
+[01m[K/usr/include/stdlib.h:563:25:[m[K [01;36m[Knote: [m[Kexpected ‘[01m[Kvoid *[m[K’ but argument is of type ‘[01m[KFILE[m[K’ {aka ‘[01m[Kstruct _IO_FILE[m[K’}
+ extern void free ([01;36m[Kvoid *__ptr[m[K) __THROW;
+                   [01;36m[K~~~~~~^~~~~[m[K
+[01m[Kmakeleet.c:[m[K In function ‘[01m[KreplaceChars[m[K’:
+[01m[Kmakeleet.c:103:8:[m[K [01;35m[Kwarning: [m[Kpassing argument 1 of ‘[01m[Kfree[m[K’ makes pointer from integer without a cast [[01;35m[K-Wint-conversion[m[K]
+   free([01;35m[K*newString[m[K);
+        [01;35m[K^~~~~~~~~~[m[K
+In file included from [01m[Kmakeleet.c:5[m[K:
+[01m[K/usr/include/stdlib.h:563:25:[m[K [01;36m[Knote: [m[Kexpected ‘[01m[Kvoid *[m[K’ but argument is of type ‘[01m[Kchar[m[K’
+ extern void free ([01;36m[Kvoid *__ptr[m[K) __THROW;
+                   [01;36m[K~~~~~~^~~~~[m[K
+]777;notify;Command completed;gcc -g -Wall -std=c11 -o makeleet makeleet.c]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ gcc -g -Wall -std=c11 -o makeleet makeleet.c
+[01m[Kmakeleet.c:[m[K In function ‘[01m[KreplaceChars[m[K’:
+[01m[Kmakeleet.c:103:8:[m[K [01;35m[Kwarning: [m[Kpassing argument 1 of ‘[01m[Kfree[m[K’ makes pointer from integer without a cast [[01;35m[K-Wint-conversion[m[K]
+   free([01;35m[K*newString[m[K);
+        [01;35m[K^~~~~~~~~~[m[K
+In file included from [01m[Kmakeleet.c:5[m[K:
+[01m[K/usr/include/stdlib.h:563:25:[m[K [01;36m[Knote: [m[Kexpected ‘[01m[Kvoid *[m[K’ but argument is of type ‘[01m[Kchar[m[K’
+ extern void free ([01;36m[Kvoid *__ptr[m[K) __THROW;
+                   [01;36m[K~~~~~~^~~~~[m[K
+]777;notify;Command completed;gcc -g -Wall -std=c11 -o makeleet makeleet.c]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ gcc -g -Wall -std=c11 -o makeleet makeleet.c
+[01m[Kmakeleet.c:[m[K In function ‘[01m[KreplaceChars[m[K’:
+[01m[Kmakeleet.c:103:8:[m[K [01;35m[Kwarning: [m[Kpassing argument 1 of ‘[01m[Kfree[m[K’ makes pointer from integer without a cast [[01;35m[K-Wint-conversion[m[K]
+   free([01;35m[K*newString[m[K);
+        [01;35m[K^~~~~~~~~~[m[K
+In file included from [01m[Kmakeleet.c:5[m[K:
+[01m[K/usr/include/stdlib.h:563:25:[m[K [01;36m[Knote: [m[Kexpected ‘[01m[Kvoid *[m[K’ but argument is of type ‘[01m[Kchar[m[K’
+ extern void free ([01;36m[Kvoid *__ptr[m[K) __THROW;
+                   [01;36m[K~~~~~~^~~~~[m[K
+]777;notify;Command completed;gcc -g -Wall -std=c11 -o makeleet makeleet.c]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ gcc -g -Wall -std=c11 -o makeleet makeleet.c[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cvalgrind --leak-check=full ./makeleet testfile[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[2Pgcc -g -Wall -std=c11 -o makeleet makeleet.c
+]777;notify;Command completed;gcc -g -Wall -std=c11 -o makeleet makeleet.c]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ gcc -g -Wall -std=c11 -o makeleet makeleet.c[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cvalgrind --leak-check=full ./makeleet testfile
+==32775== Memcheck, a memory error detector
+==32775== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==32775== Using Valgrind-3.16.0 and LibVEX; rerun with -h for copyright info
+==32775== Command: ./makeleet testfile
+==32775== 
+==32775== Invalid free() / delete / delete[] / realloc()
+==32775==    at 0x4C3210C: free (vg_replace_malloc.c:538)
+==32775==    by 0x4009FC: wordCount (makeleet.c:62)
+==32775==    by 0x400B95: main (makeleet.c:115)
+==32775==  Address 0x5201040 is 0 bytes inside a block of size 488 free'd
+==32775==    at 0x4C3210C: free (vg_replace_malloc.c:538)
+==32775==    by 0x4EAEC24: fclose@@GLIBC_2.2.5 (in /usr/lib64/libc-2.28.so)
+==32775==    by 0x4009F0: wordCount (makeleet.c:61)
+==32775==    by 0x400B95: main (makeleet.c:115)
+==32775==  Block was alloc'd at
+==32775==    at 0x4C30F0B: malloc (vg_replace_malloc.c:307)
+==32775==    by 0x4EAF4AE: __fopen_internal (in /usr/lib64/libc-2.28.so)
+==32775==    by 0x400927: wordCount (makeleet.c:33)
+==32775==    by 0x400B95: main (makeleet.c:115)
+==32775== 
+==32775== Invalid read of size 1
+==32775==    at 0x4C34334: strlen (vg_replace_strmem.c:459)
+==32775==    by 0x4EB0D75: puts (in /usr/lib64/libc-2.28.so)
+==32775==    by 0x400B49: replaceChars (makeleet.c:102)
+==32775==    by 0x400BAC: main (makeleet.c:116)
+==32775==  Address 0x5202570 is 0 bytes after a block of size 64 alloc'd
+==32775==    at 0x4C30F0B: malloc (vg_replace_malloc.c:307)
+==32775==    by 0x400A6A: replaceChars (makeleet.c:73)
+==32775==    by 0x400BAC: main (makeleet.c:116)
+==32775== 
+THi$ i$ A 73$7 fil3 
+7* $33 if w3 
+cAn c*rr3c7ly l*Ad And r3Ad.
+
+==32775== 
+==32775== HEAP SUMMARY:
+==32775==     in use at exit: 500 bytes in 2 blocks
+==32775==   total heap usage: 7 allocs, 6 frees, 10,268 bytes allocated
+==32775== 
+==32775== 12 bytes in 1 blocks are definitely lost in loss record 1 of 2
+==32775==    at 0x4C30F0B: malloc (vg_replace_malloc.c:307)
+==32775==    by 0x4009BD: wordCount (makeleet.c:57)
+==32775==    by 0x400B95: main (makeleet.c:115)
+==32775== 
+==32775== LEAK SUMMARY:
+==32775==    definitely lost: 12 bytes in 1 blocks
+==32775==    indirectly lost: 0 bytes in 0 blocks
+==32775==      possibly lost: 0 bytes in 0 blocks
+==32775==    still reachable: 488 bytes in 1 blocks
+==32775==         suppressed: 0 bytes in 0 blocks
+==32775== Reachable blocks (those to which a pointer was found) are not shown.
+==32775== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==32775== 
+==32775== For lists of detected and suppressed errors, rerun with: -s
+==32775== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+]777;notify;Command completed;valgrind --leak-check=full ./makeleet testfile]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ valgrind --leak-check=full ./makeleet testfile[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[2Pgcc -g -Wall -std=c11 -o makeleet makeleet.c
+]777;notify;Command completed;gcc -g -Wall -std=c11 -o makeleet makeleet.c]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ gcc -g -Wall -std=c11 -o makeleet makeleet.c[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cvalgrind --leak-check=full ./makeleet testfile
+==32798== Memcheck, a memory error detector
+==32798== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==32798== Using Valgrind-3.16.0 and LibVEX; rerun with -h for copyright info
+==32798== Command: ./makeleet testfile
+==32798== 
+==32798== Invalid free() / delete / delete[] / realloc()
+==32798==    at 0x4C3210C: free (vg_replace_malloc.c:538)
+==32798==    by 0x4009FC: wordCount (makeleet.c:62)
+==32798==    by 0x400B95: main (makeleet.c:115)
+==32798==  Address 0x5201040 is 0 bytes inside a block of size 488 free'd
+==32798==    at 0x4C3210C: free (vg_replace_malloc.c:538)
+==32798==    by 0x4EAEC24: fclose@@GLIBC_2.2.5 (in /usr/lib64/libc-2.28.so)
+==32798==    by 0x4009F0: wordCount (makeleet.c:61)
+==32798==    by 0x400B95: main (makeleet.c:115)
+==32798==  Block was alloc'd at
+==32798==    at 0x4C30F0B: malloc (vg_replace_malloc.c:307)
+==32798==    by 0x4EAF4AE: __fopen_internal (in /usr/lib64/libc-2.28.so)
+==32798==    by 0x400927: wordCount (makeleet.c:33)
+==32798==    by 0x400B95: main (makeleet.c:115)
+==32798== 
+==32798== Invalid read of size 1
+==32798==    at 0x4C34334: strlen (vg_replace_strmem.c:459)
+==32798==    by 0x4EB0D75: puts (in /usr/lib64/libc-2.28.so)
+==32798==    by 0x400B49: replaceChars (makeleet.c:102)
+==32798==    by 0x400BAC: main (makeleet.c:116)
+==32798==  Address 0x5202570 is 0 bytes after a block of size 64 alloc'd
+==32798==    at 0x4C30F0B: malloc (vg_replace_malloc.c:307)
+==32798==    by 0x400A6A: replaceChars (makeleet.c:73)
+==32798==    by 0x400BAC: main (makeleet.c:116)
+==32798== 
+THi$ i$ A 73$7 fil3 
+7* $33 if w3 
+cAn c*rr3c7ly l*Ad And r3Ad.
+
+==32798== 
+==32798== HEAP SUMMARY:
+==32798==     in use at exit: 488 bytes in 1 blocks
+==32798==   total heap usage: 7 allocs, 7 frees, 10,268 bytes allocated
+==32798== 
+==32798== LEAK SUMMARY:
+==32798==    definitely lost: 0 bytes in 0 blocks
+==32798==    indirectly lost: 0 bytes in 0 blocks
+==32798==      possibly lost: 0 bytes in 0 blocks
+==32798==    still reachable: 488 bytes in 1 blocks
+==32798==         suppressed: 0 bytes in 0 blocks
+==32798== Reachable blocks (those to which a pointer was found) are not shown.
+==32798== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==32798== 
+==32798== For lists of detected and suppressed errors, rerun with: -s
+==32798== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+]777;notify;Command completed;valgrind --leak-check=full ./makeleet testfile]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ script debug.script
+Script started, file is debug.script
+]777;notify;Command completed;emacs]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ emacsmore popular-small.txtout[Kls[K./run-analysis.sh out popular-small.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kmore outpopular-small.txtemacs[Kmore popular-small.txtout[Kls[K./run-analysis.sh out popular-small.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[19Pmore run-analysis.shls[K./run-analysis.sh out popular-small.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[19Pmore run-analysis.shls[Kemacs'[Kmore perform-measurement.shls[K./perform-measurement.sh http://courses.cs.washington.edu/courses/cse374/21sp/assignments/index.html[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Crm index.html index.html.1 new[K./perform-measurement.sh http://courses.cs.washington.edu/courses/cse374/21sp/assignments/index.html[K[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kmore perform-measurement.sh'[Kemacs[3Plsmore run-analysis.sh./run-analysis.sh out popular-small.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kmore run-analysis.sh./run-analysis.sh out popular-small.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kmore outpopular-small.txtemacs[K[Kgcc -g com[K[K[K-Wall -std=c11 -o makeleet makeleet.c
+]777;notify;Command completed;gcc -g -Wall -std=c11 -o makeleet makeleet.c]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ valgrind --ch[K[Kleack[K[Kk-check=full makeleet testfile
+valgrind: makeleet: command not found
+]777;notify;Command completed;valgrind --leak-check=full makeleet testfile]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ valgrind --leak-check=full makeleet testfile[1@.[1@/[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+==32885== Memcheck, a memory error detector
+==32885== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==32885== Using Valgrind-3.16.0 and LibVEX; rerun with -h for copyright info
+==32885== Command: ./makeleet testfile
+==32885== 
+==32885== Invalid free() / delete / delete[] / realloc()
+==32885==    at 0x4C3210C: free (vg_replace_malloc.c:538)
+==32885==    by 0x4009FC: wordCount (makeleet.c:62)
+==32885==    by 0x400B95: main (makeleet.c:115)
+==32885==  Address 0x5201040 is 0 bytes inside a block of size 488 free'd
+==32885==    at 0x4C3210C: free (vg_replace_malloc.c:538)
+==32885==    by 0x4EAEC24: fclose@@GLIBC

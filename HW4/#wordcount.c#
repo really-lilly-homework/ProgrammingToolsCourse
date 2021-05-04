@@ -54,12 +54,11 @@ int * wordCount(const char * filename) {
   }
 
   //printf(" %d %d %d %s\n", linecount, wordcount, charcount, filename);
-  int *result = (int *) malloc(3 * sizeof(int));
+  int *result = malloc(3 * sizeof(int));
   result[0] = linecount;
   result[1] = wordcount;
   result[2] = charcount;
   fclose(fp);
-  free(fp);
   return result;
   
 }
@@ -70,7 +69,7 @@ void replaceChars(const char * filename, int * result) {
     fprintf(stderr, "Error opening the file.\n");
     exit(EXIT_FAILURE);
   }
-  char * newString = (char *) malloc(*(result+2) * sizeof(char));
+  char * newString = malloc(*(result+2) * sizeof(char));
 
   char ch = getc(fp);
   int index = 0;
@@ -100,7 +99,7 @@ void replaceChars(const char * filename, int * result) {
   }
   
   printf("%s\n", newString);
-  free(newString);
+  free(*newString);
 }
 
 
@@ -114,6 +113,6 @@ int main( int argc, char *argv[] ) {
 
   int *result = wordCount(filename);
   replaceChars(filename, result);
-  free(result);
+
   return 0;
 }

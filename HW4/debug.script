@@ -1,0 +1,32 @@
+Script started on 2021-05-03 19:58:21-07:00
+]777;notify;Command completed;emacs]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ emacsmore popular-small.txtout[Kls[K./run-analysis.sh out popular-small.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kmore outpopular-small.txtemacs[Kmore popular-small.txtout[Kls[K./run-analysis.sh out popular-small.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[19Pmore run-analysis.shls[K./run-analysis.sh out popular-small.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[19Pmore run-analysis.shls[Kemacs'[Kmore perform-measurement.shls[K./perform-measurement.sh http://courses.cs.washington.edu/courses/cse374/21sp/assignments/index.html[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Crm index.html index.html.1 new[K./perform-measurement.sh http://courses.cs.washington.edu/courses/cse374/21sp/assignments/index.html[K[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kmore perform-measurement.sh'[Kemacs[3Plsmore run-analysis.sh./run-analysis.sh out popular-small.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kmore run-analysis.sh./run-analysis.sh out popular-small.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kmore outpopular-small.txtemacs[K[Kgcc -g com[K[K[K-Wall -std=c11 -o makeleet makeleet.c
+]777;notify;Command completed;gcc -g -Wall -std=c11 -o makeleet makeleet.c]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ valgrind --ch[K[Kleack[K[Kk-check=full makeleet testfile
+valgrind: makeleet: command not found
+]777;notify;Command completed;valgrind --leak-check=full makeleet testfile]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ valgrind --leak-check=full makeleet testfile[1@.[1@/[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+==32885== Memcheck, a memory error detector
+==32885== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==32885== Using Valgrind-3.16.0 and LibVEX; rerun with -h for copyright info
+==32885== Command: ./makeleet testfile
+==32885== 
+==32885== Invalid free() / delete / delete[] / realloc()
+==32885==    at 0x4C3210C: free (vg_replace_malloc.c:538)
+==32885==    by 0x4009FC: wordCount (makeleet.c:62)
+==32885==    by 0x400B95: main (makeleet.c:115)
+==32885==  Address 0x5201040 is 0 bytes inside a block of size 488 free'd
+==32885==    at 0x4C3210C: free (vg_replace_malloc.c:538)
+==32885==    by 0x4EAEC24: fclose@@GLIBC_2.2.5 (in /usr/lib64/libc-2.28.so)
+==32885==    by 0x4009F0: wordCount (makeleet.c:61)
+==32885==    by 0x400B95: main (makeleet.c:115)
+==32885==  Block was alloc'd at
+==32885==    at 0x4C30F0B: malloc (vg_replace_malloc.c:307)
+==32885==    by 0x4EAF4AE: __fopen_internal (in /usr/lib64/libc-2.28.so)
+==32885==    by 0x400927: wordCount (makeleet.c:33)
+==32885==    by 0x400B95: main (makeleet.c:115)
+==32885== 
+==32885== Invalid read of size 1
+==32885==    at 0x4C34334: strlen (vg_replace_strmem.c:459)
+==32885==    by 0x4EB0D75: puts (in /usr/lib64/libc-2.28.so)
+==32885==    by 0x400B49: replaceChars (makeleet.c:102)
+==32885==    by 0x400BAC: main (makeleet.c:116)
+==32885==  Address 0x5202570 is 0 bytes after a block of size 64 alloc'd
+==32885==    at 0x4C30F0B: malloc (vg_replace_mall
