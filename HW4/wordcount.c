@@ -2,67 +2,39 @@
 /*Word Count*/
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 
-#define MAX_SIZE 255 //Maximum string size
 
-/*
- * Check if a file exists by trying to open it.
- * return 1 if it exists.
- * return 0 if it does not exist.
-*/
-int checkFileExists(const char * filename) {
-  if(access(filename, F_OK) == 0) {
-    return 1;
-  }
-  else {
-    fprintf(stderr, "File %s does not exist.\n", filename);
-    return 0;
+#define MAX_LENGTH 100 //Maximum string size
+#define MAX_INPUT 500
+
+
+void checkFileExists(const char * filename) {
+  if(!access(filename, F_OK) == 0) {
+    fprintf(stderr, "%s does not exist.\n", filename);
+    exit(EXIT_FAILURE);
   }
 }
 
-/*
- * Check if the correct number of arguments is supplied
- * Returns 0 if true.
- * Returns 1 if the number of arguments is incorrect.
-*/
-int checkArguments(int argc) {
+void checkArguments(int argc) {
   if( argc < 2 ) {
     fprintf(stderr, "Too few arguments.\n");
-    return 1;
+    exit(EXIT_FAILURE);
   }
   else if( argc > 2 ) {
     fprintf(stderr, "Too many arguments.\n");
-    return 1;
-  }
-    return 0;    
+    exit(EXIT_FAILURE);
+  }    
 }
 
-
-
-
-int main( int argc, char *argv[] ) {
-
-  //Check that arguments are correct:
-  int correctArgs = checkArguments(argc);
-  if(correctArgs != 0) {
-    return 1;
-  }
-
-  //Check that the file to count exists:
-  char* filename = argv[1];
-  int exists = checkFileExists(filename);
-  if(!exists) {
-    return 1;
-  }
-
+void wordCount(const char * filename) {
   FILE *fp = fopen(filename, "r");
   if(fp == NULL) {
     fprintf(stderr, "Error opening the file.\n");
-    return 1;
+    exit(EXIT_FAILURE);
   }
-
 
   int wordcount = 0;
   int linecount = 0;
@@ -82,6 +54,27 @@ int main( int argc, char *argv[] ) {
   }
 
   printf(" %d %d %d %s\n", linecount, wordcount, charcount, filename);
+  
+}
+
+
+
+
+int main( int argc, char *argv[] ) {
+
+  checkArguments(argc);
+ 
+  char* filename = argv[1];
+  checkFileExists(filename);
+
+  FILE *fp = fopen(filename, "r");
+  if(fp == NULL) {
+    fprintf(stderr, "Error opening the file.\n");
+    exit(EXIT_FAILURE);
+  }
+
+  wordCount(filename);
+
   
   return 0;
 }
