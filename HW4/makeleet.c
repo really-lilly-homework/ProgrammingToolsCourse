@@ -29,7 +29,7 @@ void checkArguments(int argc) {
   }    
 }
 
-void wordCount(const char * filename) {
+int * wordCount(const char * filename) {
   FILE *fp = fopen(filename, "r");
   if(fp == NULL) {
     fprintf(stderr, "Error opening the file.\n");
@@ -53,10 +53,54 @@ void wordCount(const char * filename) {
     ch = getc(fp);
   }
 
-  printf(" %d %d %d %s\n", linecount, wordcount, charcount, filename);
+  //printf(" %d %d %d %s\n", linecount, wordcount, charcount, filename);
+  int *result = malloc(3 * sizeof(int));
+  result[0] = linecount;
+  result[1] = wordcount;
+  result[2] = charcount;
+  fclose(fp);
+  return result;
   
 }
 
+void replaceChars(const char * filename, int * result) {
+  FILE *fp = fopen(filename, "r");
+  if(fp == NULL) {
+    fprintf(stderr, "Error opening the file.\n");
+    exit(EXIT_FAILURE);
+  }
+  char * newString = malloc(*(result+2) * sizeof(char));
+
+  char ch = getc(fp);
+  int index = 0;
+  
+
+  while(ch != EOF) {
+    if(ch == 'a'){
+      *(newString + index) = 'A';
+    }
+    else if(ch == 's' || ch == 'S'){
+      *(newString + index) = '$';
+    }
+    else if(ch == 'o' || ch == 'O'){
+      *(newString + index) = '*';
+    }
+    else if(ch == 'e'){
+      *(newString + index) = '3';
+    }
+    else if(ch == 't'){
+      *(newString + index) = '7';
+    }
+    else {
+       *(newString + index) = ch;
+    }
+    ch = getc(fp);
+    index++;
+  }
+  
+  printf("%s\n", newString);
+  free(newString);
+}
 
 
 
@@ -67,14 +111,8 @@ int main( int argc, char *argv[] ) {
   char* filename = argv[1];
   checkFileExists(filename);
 
-  FILE *fp = fopen(filename, "r");
-  if(fp == NULL) {
-    fprintf(stderr, "Error opening the file.\n");
-    exit(EXIT_FAILURE);
-  }
+  int *result = wordCount(filename);
+  replaceChars(filename, result);
 
-  wordCount(filename);
-
-  
   return 0;
 }
