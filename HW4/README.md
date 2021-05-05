@@ -1,0 +1,12 @@
+Lillian Tatka
+2021-05-05
+HW4
+
+This program translates a textfile to leet text and prints the resulting text as well as word count information. It takes a filename to be translated and returns the results to stdout. Exceptions are thrown for invalid files or arguments.
+
+To compile Make Leet:
+  $ gcc -Wall -std=c11 -o makeleet makeleet.c
+
+After compilation, use Make Leet by calling:
+  $ ./makeleet <filename>
+
