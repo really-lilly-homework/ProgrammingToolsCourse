@@ -1,5 +1,6 @@
 /*Lillian Tatka -- CSE374 HW4 -- 2021-05-05*/
-/*Word Count*/
+/*MAKE LEET*/
+/*This program takes a text file, translates it to "leet" and prints the result as well as wordcount of file.*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,113 +8,138 @@
 #include <unistd.h>
 
 
-#define MAX_LENGTH 100 //Maximum string size
-#define MAX_INPUT 500
+void checkArguments(int num_args);
+FILE * openFile(const char * filename);
+int * wordCount(FILE *fileptr);
+void replaceChars(FILE *fileptr, int * result);
 
 
-void checkFileExists(const char * filename) {
-  if(!access(filename, F_OK) == 0) {
-    fprintf(stderr, "%s does not exist.\n", filename);
-    exit(EXIT_FAILURE);
-  }
+int main( int argc, char *argv[] ) {
+
+  
+  checkArguments(argc);
+
+  char *filename =argv[1];
+  FILE *fileptr = openFile(filename);
+  int *wordcount = wordCount(fileptr);
+  
+  replaceChars(fileptr, wordcount);
+  printf("FILE STATS:\n");
+  printf(" %d %d %d %s\n", *wordcount, *(wordcount+1), *(wordcount+2), filename);
+  free(wordcount);
+  fclose(fileptr);
+  return 0;
 }
 
-void checkArguments(int argc) {
-  if( argc < 2 ) {
+
+/*
+ *Check that the arguments are properly supplied: exactly one filename
+ *IN: int num_args, the number of arguments supplied at runtime 
+ *EXCEPTION: exit with error if the arguments are incorrect
+ */
+void checkArguments(int num_args) {
+  if( num_args < 2 ) {
     fprintf(stderr, "Too few arguments.\n");
     exit(EXIT_FAILURE);
   }
-  else if( argc > 2 ) {
+  else if( num_args > 2 ) {
     fprintf(stderr, "Too many arguments.\n");
     exit(EXIT_FAILURE);
   }    
 }
 
-int * wordCount(const char * filename) {
-  FILE *fp = fopen(filename, "r");
-  if(fp == NULL) {
+
+FILE * openFile(const char * filename) {
+  //Check that file exists
+  if(!access(filename, F_OK) == 0) {
+    fprintf(stderr, "%s does not exist.\n", filename);
+    exit(EXIT_FAILURE);
+  }
+  //Check that we can open the file
+  FILE *fileptr = fopen(filename, "r");
+  if(fileptr == NULL) {
     fprintf(stderr, "Error opening the file.\n");
     exit(EXIT_FAILURE);
   }
+  return fileptr;
+}
 
+/*
+ *Count the number of lines, words, and characters in a given file
+ *IN: a pointer to the filename
+ *OUT: a pointer to an int array containing the counts
+ */
+int * wordCount(FILE *fileptr) {
+  
   int wordcount = 0;
   int linecount = 0;
   int charcount = 0;
-  char ch = getc(fp);
-  
+  char curr_ch = getc(fileptr); //current character in the supplied file
 
-  while(ch != EOF) {
+  // Read through each character and count lines, words, characters
+  while(curr_ch != EOF) {
     charcount++;
-    if(ch == ' ' || ch == '\n'){
+    if(curr_ch == ' ' || curr_ch == '\n'){
       wordcount++;
-      if(ch == '\n') {
+      if(curr_ch == '\n') {
 	linecount++;
       }
     }
-    ch = getc(fp);
+    curr_ch = getc(fileptr);
   }
+  fseek(fileptr, 0, SEEK_SET);
 
-  //printf(" %d %d %d %s\n", linecount, wordcount, charcount, filename);
-  int *result = (int *) malloc(3 * sizeof(int));
-  result[0] = linecount;
-  result[1] = wordcount;
-  result[2] = charcount;
-  fclose(fp);
-  free(fp);
-  return result;
+  // Construct result array and return pointer
+  int *countarray = (int *) malloc(3 * sizeof(int));
+  countarray[0] = linecount;
+  countarray[1] = wordcount;
+  countarray[2] = charcount;
+
+  return countarray;
   
 }
 
-void replaceChars(const char * filename, int * result) {
-  FILE *fp = fopen(filename, "r");
-  if(fp == NULL) {
-    fprintf(stderr, "Error opening the file.\n");
-    exit(EXIT_FAILURE);
-  }
+/*
+ *Translate the file contents into leet text and print the result
+ *IN: a pointer to the filename, a pointer to a wordcount result array
+ *EXCEPTION: exit with error if unable to open the file
+ */
+void replaceChars(FILE *fileptr, int * result) {
+  char curr_ch = getc(fileptr); // The current character in the supplied file
+  int newstr_index = 0; // The next index in the new string
   char * newString = (char *) malloc(*(result+2) * sizeof(char));
-
-  char ch = getc(fp);
-  int index = 0;
   
-
-  while(ch != EOF) {
-    if(ch == 'a'){
-      *(newString + index) = 'A';
+  // Read character by character and add to newString
+  while(curr_ch != EOF) {
+    
+    if(curr_ch == 'a'){
+      *(newString + newstr_index) = 'A';
     }
-    else if(ch == 's' || ch == 'S'){
-      *(newString + index) = '$';
+    else if(curr_ch == 's' || curr_ch == 'S'){
+      *(newString + newstr_index) = '$';
     }
-    else if(ch == 'o' || ch == 'O'){
-      *(newString + index) = '*';
+    else if(curr_ch == 'o' || curr_ch == 'O'){
+      *(newString + newstr_index) = '*';
     }
-    else if(ch == 'e'){
-      *(newString + index) = '3';
+    else if(curr_ch == 'e'){
+      *(newString + newstr_index) = '3';
     }
-    else if(ch == 't'){
-      *(newString + index) = '7';
+    else if(curr_ch == 't'){
+      *(newString + newstr_index) = '7';
     }
     else {
-       *(newString + index) = ch;
+       *(newString + newstr_index) = curr_ch;
     }
-    ch = getc(fp);
-    index++;
+    // Increment current character and index
+    curr_ch = getc(fileptr);
+    newstr_index++;
   }
-  
+  fseek(fileptr, 0, SEEK_SET);
   printf("%s\n", newString);
   free(newString);
+
 }
 
 
 
-int main( int argc, char *argv[] ) {
 
-  checkArguments(argc);
- 
-  char* filename = argv[1];
-  checkFileExists(filename);
-
-  int *result = wordCount(filename);
-  replaceChars(filename, result);
-  free(result);
-  return 0;
-}

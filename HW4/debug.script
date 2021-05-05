@@ -1,32 +1,82 @@
-Script started on 2021-05-03 19:58:21-07:00
-]777;notify;Command completed;emacs]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ emacsmore popular-small.txtout[Kls[K./run-analysis.sh out popular-small.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kmore outpopular-small.txtemacs[Kmore popular-small.txtout[Kls[K./run-analysis.sh out popular-small.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[19Pmore run-analysis.shls[K./run-analysis.sh out popular-small.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[19Pmore run-analysis.shls[Kemacs'[Kmore perform-measurement.shls[K./perform-measurement.sh http://courses.cs.washington.edu/courses/cse374/21sp/assignments/index.html[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Crm index.html index.html.1 new[K./perform-measurement.sh http://courses.cs.washington.edu/courses/cse374/21sp/assignments/index.html[K[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kmore perform-measurement.sh'[Kemacs[3Plsmore run-analysis.sh./run-analysis.sh out popular-small.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kmore run-analysis.sh./run-analysis.sh out popular-small.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kmore outpopular-small.txtemacs[K[Kgcc -g com[K[K[K-Wall -std=c11 -o makeleet makeleet.c
-]777;notify;Command completed;gcc -g -Wall -std=c11 -o makeleet makeleet.c]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ valgrind --ch[K[Kleack[K[Kk-check=full makeleet testfile
-valgrind: makeleet: command not found
-]777;notify;Command completed;valgrind --leak-check=full makeleet testfile]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ valgrind --leak-check=full makeleet testfile[1@.[1@/[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
-==32885== Memcheck, a memory error detector
-==32885== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==32885== Using Valgrind-3.16.0 and LibVEX; rerun with -h for copyright info
-==32885== Command: ./makeleet testfile
-==32885== 
-==32885== Invalid free() / delete / delete[] / realloc()
-==32885==    at 0x4C3210C: free (vg_replace_malloc.c:538)
-==32885==    by 0x4009FC: wordCount (makeleet.c:62)
-==32885==    by 0x400B95: main (makeleet.c:115)
-==32885==  Address 0x5201040 is 0 bytes inside a block of size 488 free'd
-==32885==    at 0x4C3210C: free (vg_replace_malloc.c:538)
-==32885==    by 0x4EAEC24: fclose@@GLIBC_2.2.5 (in /usr/lib64/libc-2.28.so)
-==32885==    by 0x4009F0: wordCount (makeleet.c:61)
-==32885==    by 0x400B95: main (makeleet.c:115)
-==32885==  Block was alloc'd at
-==32885==    at 0x4C30F0B: malloc (vg_replace_malloc.c:307)
-==32885==    by 0x4EAF4AE: __fopen_internal (in /usr/lib64/libc-2.28.so)
-==32885==    by 0x400927: wordCount (makeleet.c:33)
-==32885==    by 0x400B95: main (makeleet.c:115)
-==32885== 
-==32885== Invalid read of size 1
-==32885==    at 0x4C34334: strlen (vg_replace_strmem.c:459)
-==32885==    by 0x4EB0D75: puts (in /usr/lib64/libc-2.28.so)
-==32885==    by 0x400B49: replaceChars (makeleet.c:102)
-==32885==    by 0x400BAC: main (makeleet.c:116)
-==32885==  Address 0x5202570 is 0 bytes after a block of size 64 alloc'd
-==32885==    at 0x4C30F0B: malloc (vg_replace_mall
+Script started on 2021-05-04 17:39:25-07:00
+]777;notify;Command completed;emacs]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ valgrind --leak-check=full ./makeleet testfile
+==34909== Memcheck, a memory error detector
+==34909== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==34909== Using Valgrind-3.16.0 and LibVEX; rerun with -h for copyright info
+==34909== Command: ./makeleet testfile
+==34909== 
+==34909== Invalid read of size 1
+==34909==    at 0x4C34334: strlen (vg_replace_strmem.c:459)
+==34909==    by 0x4EB0D75: puts (in /usr/lib64/libc-2.28.so)
+==34909==    by 0x400C5F: replaceChars (makeleet.c:138)
+==34909==    by 0x40093D: main (makeleet.c:26)
+==34909==  Address 0x5202340 is 0 bytes after a block of size 64 alloc'd
+==34909==    at 0x4C30F0B: malloc (vg_replace_malloc.c:307)
+==34909==    by 0x400B80: replaceChars (makeleet.c:110)
+==34909==    by 0x40093D: main (makeleet.c:26)
+==34909== 
+THi$ i$ A 73$7 fil3 
+7* $33 if w3 
+cAn c*rr3c7ly l*Ad And r3Ad.
+
+FILE STATS:
+ 3 16 64 testfile
+==34909== 
+==34909== HEAP SUMMARY:
+==34909==     in use at exit: 0 bytes in 0 blocks
+==34909==   total heap usage: 5 allocs, 5 frees, 5,684 bytes allocated
+==34909== 
+==34909== All heap blocks were freed -- no leaks are possible
+==34909== 
+==34909== For lists of detected and suppressed errors, rerun with: -s
+==34909== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+]777;notify;Command completed;valgrind --leak-check=full ./makeleet testfile]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ gdb makeleet
+GNU gdb (GDB) Red Hat Enterprise Linux 8.2-12.el8
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from makeleet...done.
+(gdb) b 19
+Breakpoint 1 at 0x4008f5: file makeleet.c, line 20.
+(gdb) b 24
+Breakpoint 2 at 0x40091b: file makeleet.c, line 24.
+(gdb) run testfile
+Starting program: /home/highway2he11/CSE374/HW4/makeleet testfile
+Missing separate debuginfos, use: yum debuginfo-install glibc-2.28-127.el8.x86_64
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffd418) at makeleet.c:20
+20	  checkArguments(argc);
+(gdb) p *filename
+Cannot access memory at address 0x0
+(gdb) continue
+Continuing.
+
+Breakpoint 2, main (argc=2, argv=0x7fffffffd418) at makeleet.c:24
+24	  int *wordcount = wordCount(fileptr);
+(gdb) backtrace
+#0  main (argc=2, argv=0x7fffffffd418) at makeleet.c:24
+(gdb) continue
+Continuing.
+THi$ i$ A 73$7 fil3 
+7* $33 if w3 
+cAn c*rr3c7ly l*Ad And r3Ad.
+
+FILE STATS:
+ 3 16 64 testfile
+[Inferior 1 (process 34920) exited normally]
+(gdb) q
+]777;notify;Command completed;gdb makeleet]0;highway2he11@localhost:~/CSE374/HW4]7;file://localhost.localdomain/home/highway2he11/CSE374/HW4[highway2he11@localhost HW4]$ exit
+exit
+
+Script done on 2021-05-04 17:43:26-07:00
