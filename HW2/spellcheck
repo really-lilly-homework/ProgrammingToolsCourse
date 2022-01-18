@@ -1,51 +1,60 @@
 #Lillian Tatka
-#HW2 Q4
-# 4/20/2021  1 day late)
+#1/26/2022 
 
 #!/bin/bash
 
 # Check for correct number of args:
-if [ $# -ne 1 ]; then
-  echo "Error: only 1 argument allowed." 1>&2; exit 1
+
+# No file supplied:
+if [ $# -eq 0 ]; then
+     echo "Usage: spellcheck [inputfilename]" 1>&2; exit 1
 fi
 
-# Check for file validity:
-if [ ! -f $1 ]; then
-  echo "Error: invalid file." 1>&2; exit 1
-fi
 
-touch tempWords
-sed 's/ /\n/g' "$1" > tempWords
-sed -i 's/[[:punct:]]//g' tempWords
+
+
+#touch tempWords
+#sed 's/ /\n/g' "$1" > tempWords
+#sed -i 's/[[:punct:]]//g' tempWords
 
 if [ -e "$1.spelling" ];then
     echo spellcheck replacing "$1.spelling" file
     rm "$1.spelling"
 fi
 
-touch "$1.spelling"
+# Go though each argument (file)
+while [ $# -gt 0 ]; do
 
-while read -r line;
-do
-    if [ "$line" ];
-    then
-	if ! grep -q ^"$line"$ /usr/share/dict/words;
-	then
-	    echo "$line" >> "$1.spelling"
-	fi
-    fi  
-done < tempWords
+    # Check if file exists:
+    if [ ! -f $1 ]; then
+        echo "Error: $1 does not exist --skipping" 1>&2
+    fi
 
-rm tempWords
+    # Check if inputfile.spelling exists:
+    if [ ! -f "$1.spelling" ]; then
+        echo "Creating $1.spelling..."
+    else
+        echo "Replacing $1.spelling..."
+    fi
+    touch "$1.spelling"
+    
+    
+    while read -r line; do
+        for word in $line; do
+            if ! grep -qi ^"$word"$ /usr/share/dict/words; then
+	        echo "$word" >> "$1.spelling"
+            fi
+	done
+    done < "$1"
 
-nWords=$(wc -l < "$1.spelling")
-nUnique=$(sort "$1.spelling" | uniq | wc -l)
+    nWords=$(wc -l < "$1.spelling")
+    nUnique=$(sort "$1.spelling" | uniq | wc -l)
 
-echo spellcheck found $nWords spelling errors, output to file "$1.spelling"
-echo $nUnique of the words are unique
+    echo spellcheck found $nWords spelling errors, output to file "$1.spelling"
+    echo $nUnique of the words are unique
+    shift
+done
 
 exit 0
 
-#while read line; do
-#  for word in $line; do
-#    grep w
+

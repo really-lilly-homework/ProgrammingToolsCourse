@@ -1,17 +1,16 @@
-#Lillian Tatka
-#HW2 Q 3
-#4/20/21 (1 day late)
-
 #!/bin/bash
+
+#Lillian Tatka
+#1/26/2022
 
 # Check for minimum number of args
 if [ $# -lt 2 ]; then
-  echo "Error: too few args" 1>&2; exit 1
+  echo "Usage: combine outputfilename [inputfilename...]" 1>&2; exit 1
 fi
 
-# Check if file exists
+# Check if output file exists
 if [ -e "$1" ]; then
-  echo "Error: first file exists" 1>&2; exit 1
+  echo "Error: Output file should not exist" 1>&2; exit 1
 fi
 
 FILE_OUT="$1"
@@ -19,6 +18,7 @@ FILE_OUT="$1"
 # Adjust indices 
 shift
 
+# Get contents of each input file and write them to the output file
 cat "$@" > "$FILE_OUT" 2>&1
 
 exit 0
