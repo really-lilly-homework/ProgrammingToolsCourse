@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main(int argc, char **argv) {
+
+  FILE *filePointer;
+  char ch;
+  int characters, words, lines;
+  int i;
+
+  for (i = 1; i < argc; i++){
+    // Initialize counts to 0
+    characters = words = lines = 0;
+    // Open the file
+    filePointer = fopen(argv[i], "r");
+
+    while ((ch = fgetc(filePointer)) != EOF) {
+      characters++;
+
+      // Check if new line
+      if (ch == '\n')
+	lines++;
+
+      // Check if new word
+      if (ch == ' ')
+	words++;
+    }
+
+  printf("\n");
+  printf("%d %d %d\n", characters, words, lines);
+  fclose(filePointer);
+  }
+  return 0;
+
+    
+
+}
